@@ -31,19 +31,19 @@
     "mu": 0.8,
     "max_al_weight": 1e30,
     "meshes": [{
-        "mesh": "ipc_robotics/envs/assets/vol_mesh/sphere.msh",
+        "mesh": "assets/vol_mesh/sphere.msh",
         "position": [-1.0, 0.2, 0],
         "scale": 0.1,
         "body_id": 1,
         "boundary_id": 1
     }, {
-        "mesh": "ipc_robotics/envs/assets/vol_mesh/cube.msh",
+        "mesh": "assets/vol_mesh/cube.msh",
         "position": [0, -0.0051, 0],
         "scale": [4, 0.01, 4],
         "body_id": 2,
         "boundary_id": 2
     }, {
-        "mesh": "ipc_robotics/envs/assets/vol_mesh/cube.msh",
+        "mesh": "assets/vol_mesh/cube.msh",
         "position": [-0.65, 0.2, 0],
         "scale": 0.4,
         "body_id": 3,
