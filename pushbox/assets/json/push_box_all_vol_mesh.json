@@ -31,19 +31,19 @@
     "mu": 0.8,
     "max_al_weight": 1e30,
     "meshes": [{
-        "mesh": "assets/vol_mesh/sphere.msh",
+        "mesh": "pushbox/assets/data/vol_mesh/sphere.msh",
         "position": [-1.0, 0.2, 0],
         "scale": 0.1,
         "body_id": 1,
         "boundary_id": 1
     }, {
-        "mesh": "assets/vol_mesh/cube.msh",
+        "mesh": "pushbox/assets/data/vol_mesh/cube.msh",
         "position": [0, -0.0051, 0],
         "scale": [4, 0.01, 4],
         "body_id": 2,
         "boundary_id": 2
     }, {
-        "mesh": "assets/vol_mesh/cube.msh",
+        "mesh": "pushbox/assets/data/vol_mesh/cube.msh",
         "position": [-0.65, 0.2, 0],
         "scale": 0.4,
         "body_id": 3,
@@ -70,7 +70,7 @@
 
     "bc_method": "sample",
     "quadrature_order": -1,
-    "save_time_sequence": false,
+    "save_time_sequence": true,
     "save_solve_sequence_debug": false,
     "vismesh_rel_area": 10000000
 }
