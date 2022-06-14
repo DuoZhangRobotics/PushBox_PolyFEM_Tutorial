@@ -1,8 +1,6 @@
 import polyfempy as pf
 import json
 import numpy as np
-import meshio
-import igl
 
 class PushBox:
     def __init__(self) -> None:
@@ -26,9 +24,7 @@ class PushBox:
         for mesh in self.config["meshes"]:
             self.id_to_mesh[mesh["body_id"]] = mesh["mesh"]
             self.id_to_position[mesh["body_id"]] = mesh["position"]
-            mesh_vf = meshio.read(mesh["mesh"])
-            self.id_to_vf[mesh["body_id"]] = (mesh["scale"]*mesh_vf.points, igl.boundary_facets(mesh_vf.cells_dict["tetra"])[:, ::-1])
-        
+            
     def set_boundary_conditions(self, action):
         t0 = self.t0
         t1 = t0 + self.dt
@@ -52,7 +48,7 @@ class PushBox:
             mean_cell_id = np.mean(body_ids[tets], axis=1).astype(np.int32).flat
             tet_barycenter = np.mean(vertex_position[tets], axis=1)
             self.id_to_position[mesh_id] = np.mean(tet_barycenter[mean_cell_id == mesh_id], axis=0)
-        return np.concatenate([v for k, v in self.id_to_position.items()])
+        return self.id_to_position
     
     def run_simulation(self):
         self.solver.step_in_time(0, self.dt, self.step_count)
