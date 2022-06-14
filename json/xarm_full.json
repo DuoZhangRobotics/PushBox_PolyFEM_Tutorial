@@ -1,0 +1,127 @@
+{
+    "problem": "GenericTensor",
+    "tensor_formulation": "NeoHookean",
+    "problem_params": {
+        "is_time_dependent": true,
+        "dirichlet_boundary": [{
+            "id": 1,
+            "value": ["0", "0", "0"]
+        }, {
+            "id": 2,
+            "value": [0, 0, 0]
+        }],
+        "rhs": [0, 9.81, 0]
+    },
+    "t0": 0,
+    "dt": 0.0167,
+    "time_steps": 1,
+    "friction_iterations": 100, 
+    "solver_params": {
+        "gradNorm": 1e-2,
+        "useGradNorm": false,
+        "broad_phase_method": "STQ"
+    },
+    "line_search": "backtracking",
+    "project_to_psd": true,
+    "solver_type": "Eigen::SparseLU",
+
+    "has_collision": true,
+    "dhat": 1e-3,
+
+    "mu": 0.8,
+    "max_al_weight": 1e30,
+    "meshes": [{
+        "mesh": "ipc_robotics/envs/assets/xarm/vol_mesh/base_link.msh",
+        "position": [0, 0, 0],
+        "scale": 1,
+        "body_id": 1,
+        "boundary_id": 1
+    }, {
+        "mesh": "ipc_robotics/envs/assets/xarm/vol_mesh/left_outer_knuckle.msh",
+        "position": [0.04961725104756258, 0.056559, 0.04961725104756258],
+        "scale": 1,
+        "body_id": 3,
+        "boundary_id": 3
+    },{
+        "mesh": "ipc_robotics/envs/assets/xarm/vol_mesh/left_finger.msh",
+        "position": [0.01141607756660326, -0.058452000000000004, 0.01141607756660326],
+        "scale": 1,
+        "body_id": 4,
+        "boundary_id": 3
+    },{
+        "mesh": "ipc_robotics/envs/assets/xarm/vol_mesh/left_inner_knuckle.msh",
+        "position": [-0.01289595208700212, -0.052051201460421366, -0.01289595208700212],
+        "scale": 1,
+        "body_id": 5,
+        "boundary_id": 3
+    },{
+        "mesh": "ipc_robotics/envs/assets/xarm/vol_mesh/right_outer_knuckle.msh",
+        "position": [0.04961725104756258, -0.056559, 0.04961725104756258],
+        "scale": 1,
+        "body_id": 6,
+        "boundary_id": 3
+    },{
+        "mesh": "ipc_robotics/envs/assets/xarm/vol_mesh/right_finger.msh",
+        "position": [0.011416358662814862, -0.02562599999999998, 0.011416358662814862],
+        "scale": 1,
+        "body_id": 7,
+        "boundary_id": 3
+    },{
+        "mesh": "ipc_robotics/envs/assets/xarm/vol_mesh/right_inner_knuckle.msh",
+        "position": [-0.01289547457504656, -0.09614497490512859, -0.01289547457504656],
+        "scale": 1,
+        "body_id": 8,
+        "boundary_id": 3
+    }
+
+],
+    "normalize_mesh": false,
+
+    "body_params": [{
+        "id": 1,
+        "E": 2e11,
+        "nu": 0.3,
+        "rho": 7750
+    }, {
+        "id": 2,
+        "E": 2e11,
+        "nu": 0.3,
+        "rho": 7750
+    },{
+        "id": 3,
+        "E": 2e11,
+        "nu": 0.3,
+        "rho": 7750
+    }, {
+        "id": 4,
+        "E": 2e11,
+        "nu": 0.3,
+        "rho": 7750
+    },{
+        "id": 5,
+        "E": 2e11,
+        "nu": 0.3,
+        "rho": 7750
+    },{
+        "id": 6,
+        "E": 2e11,
+        "nu": 0.3,
+        "rho": 7750
+    },{
+        "id": 7,
+        "E": 2e11,
+        "nu": 0.3,
+        "rho": 7750
+    },{
+        "id": 8,
+        "E": 2e11,
+        "nu": 0.3,
+        "rho": 7750
+    }],
+
+    "bc_method": "sample",
+    "quadrature_order": -1,
+    "save_time_sequence": false,
+    "save_solve_sequence_debug": false,
+    "vismesh_rel_area": 10000000
+}
