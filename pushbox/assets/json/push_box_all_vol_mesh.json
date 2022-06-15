@@ -23,7 +23,7 @@
     },
     "line_search": "backtracking",
     "project_to_psd": true,
-    "solver_type": "Eigen::SparseLU",
+    "solver_type": "Eigen::CholmodSupernodalLLT",
 
     "has_collision": true,
     "dhat": 1e-3,

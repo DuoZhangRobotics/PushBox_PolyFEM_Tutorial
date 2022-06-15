@@ -1,4 +1,4 @@
-from pushbox.src.pushbox import PushBox
+from pushbox.src.pushbox_with_obstacles import PushBox
 import numpy as np
 
 env = PushBox()

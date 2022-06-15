@@ -17,7 +17,7 @@
     },
     "line_search": "backtracking",
     "project_to_psd": true,
-    "solver_type": "Eigen::SparseLU",
+    "solver_type": "Eigen::CholmodSupernodalLLT",
 
     "has_collision": true,
     "dhat": 1e-3,
@@ -25,21 +25,21 @@
     "mu": 0.8,
     "max_al_weight": 1e30,
     "meshes": [{
-        "mesh": "ipc_robotics/envs/assets/vol_mesh/cube.msh",
+        "mesh": "pushbox/assets/data/vol_mesh/cube.msh",
         "position": [-0.65, 0.2, 0],
         "scale": 0.4,
         "body_id": 3,
         "boundary_id": 3
     }],
     "obstacles": [{
-            "mesh": "ipc_robotics/envs/assets/vol_mesh/sphere.msh",
+            "mesh": "pushbox/assets/data/surf_mesh/sphere.obj",
             "position": [-1.0, 0.2, 0],
             "scale": 0.1,
             "displacement": ["0", "0", "0"],
             "enabled": true
         },
         {
-            "mesh": "ipc_robotics/envs/assets/vol_mesh/cube.msh",
+            "mesh": "pushbox/assets/data/surf_mesh/cube_dense.obj",
             "position": [0, -0.0051, 0],
             "scale": [4, 0.01, 4],
             "enabled": true,
@@ -58,7 +58,7 @@
 
     "bc_method": "sample",
     "quadrature_order": -1,
-    "save_time_sequence": false,
+    "save_time_sequence": true,
     "save_solve_sequence_debug": false,
     "vismesh_rel_area": 10000000,
     "export": {
