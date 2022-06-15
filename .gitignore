@@ -1,3 +1,4 @@
 *.vtm
 *.vtu
 results/
+.DS_Store
