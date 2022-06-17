@@ -7,23 +7,22 @@ class PushBox:
         self.asset_file = 'pushbox/assets/json/push_box_all_vol_mesh.json'
         with open(self.asset_file,'r') as f:
             self.config = json.load(f)
-        self.dt = self.config["dt"]
         self.step_count = 1
         self.solver = pf.Solver()
         self.solver.set_log_level(3)
         self.solver.set_settings(json.dumps(self.config))
         self.solver.load_mesh_from_settings()
         self.cumulative_action = np.zeros(3)
-        self.dt = self.config["dt"]
-        self.t0 = self.config["t0"]
+        self.dt = self.config["time"]['dt']
+        self.t0 = self.config["time"]["t0"]
         self.solver.init_timestepping(self.t0, self.dt)
         
         self.id_to_mesh = {}
         self.id_to_position = {}
         self.id_to_vf = {}
-        for mesh in self.config["meshes"]:
-            self.id_to_mesh[mesh["body_id"]] = mesh["mesh"]
-            self.id_to_position[mesh["body_id"]] = mesh["position"]
+        for mesh in self.config["geometry"]:
+            self.id_to_mesh[mesh["volume_selection"]] = mesh["mesh"]
+            self.id_to_position[mesh["volume_selection"]] = mesh["transformation"]["translation"]
             
     def set_boundary_conditions(self, action):
         t0 = self.t0
