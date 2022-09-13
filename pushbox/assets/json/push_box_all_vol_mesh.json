@@ -71,7 +71,7 @@
     },
     "solver": {
         "linear": {
-            "solver": "Eigen::PardisoLDLT"
+            "solver": "Eigen::CholmodSupernodalLLT"
         },
         "nonlinear": {
             "line_search": {

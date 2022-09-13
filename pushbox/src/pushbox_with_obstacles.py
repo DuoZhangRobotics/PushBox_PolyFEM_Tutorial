@@ -4,7 +4,7 @@ import numpy as np
 
 class PushBox:
     def __init__(self) -> None:
-        self.asset_file = 'pushbox/assets/json/push_box_all_vol_mesh.json'
+        self.asset_file = 'pushbox/assets/json/push_box.json'
         with open(self.asset_file,'r') as f:
             self.config = json.load(f)
         self.step_count = 1
@@ -20,9 +20,13 @@ class PushBox:
         self.id_to_mesh = {}
         self.id_to_position = {}
         self.id_to_vf = {}
+        self.obstacle_ids=[]
         for mesh in self.config["geometry"]:
-            self.id_to_mesh[mesh["volume_selection"]] = mesh["mesh"]
-            self.id_to_position[mesh["volume_selection"]] = mesh["transformation"]["translation"]
+            if ("is_obstacle" in mesh.keys()) and (mesh["is_obstacle"]):
+                self.obstacle_ids.append(mesh["surface_selection"])
+            else:
+                self.id_to_mesh[mesh["volume_selection"]] = mesh["mesh"]
+                self.id_to_position[mesh["volume_selection"]] = mesh["transformation"]["translation"]
             
     def set_boundary_conditions(self, action):
         t0 = self.t0
